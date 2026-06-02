@@ -51,8 +51,6 @@ def member_list(request):
     members = Member.objects.all().order_by('id')
     return render(request, 'member_list.html', {'members': members})
 
-
-@login_required(login_url='/admin/login/')
 def print_member(request, pk):
 
     member = get_object_or_404(Member, id=pk)
