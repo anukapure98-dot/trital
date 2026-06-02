@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सभासद नोंदणी फॉर्म - त्रिताल वाद्य पथक</title>
+    <style>
+        @import url('https://googleapis.com');
+
+        body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+/* FORM PAGE */
+.form-container{
+    width:750px;
+    background:#fff;
+    padding:40px;
+    border:2px solid #000;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    position:relative;
+    box-sizing:border-box;
+
+    margin:0 auto 40px auto; /* CENTER */
+}
+
+/* SECOND PAGE */
+.second-page{
+    margin-top:40px;
+}
+
+        /* वॉटरमार्क बॅकग्राउंड */
+        .form-container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://icons8.com') no-repeat center; /* येथे तुमच्या लोगोची लिंक टाका */
+            background-size: 55%;
+            opacity: 0.05;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .form-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* टॉप हेडर */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* मुख्य टायटल */
+        .main-title-container {
+            text-align: center;
+            margin: 20px 0 5px 0;
+        }
+
+        .main-title {
+            font-family: 'Yatra One', 'Rozha One', serif;
+            font-size: 65px;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .motto {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* गोल्डन लाईन */
+        .gold-line {
+            border-top: 3px solid #d4af37;
+            margin: 15px 0;
+        }
+
+        /* दिनांक आणि फोटो */
+        .date-photo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .date-section {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .photo-box {
+            width: 105px;
+            height: 135px;
+            border: 1px dotted #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* फॉर्म टायटल */
+        .form-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0 30px 0;
+        }
+
+        /* इनपुट फिल्ड्स */
+        .form-group {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .form-group label {
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+
+        .form-group .line-input {
+            flex-grow: 1;
+            border: none;
+            border-bottom: 1px solid #000;
+            font-size: 18px;
+            padding-left: 10px;
+            outline: none;
+            background: transparent;
+        }
+
+        /* डिक्लेरेशन पॅराग्राफ */
+        .declaration {
+            font-size: 16px;
+            line-height: 1.8;
+            font-weight: bold;
+            margin-top: 40px;
+            text-align: justify;
+        }
+
+        .declaration .name-line {
+            display: inline-block;
+            width: 250px;
+            border-bottom: 1px solid #000;
+        }
+
+        /* स्वाक्षरी सेक्शन */
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .print-btn{
+    background:#000;
+    color:#fff;
+    padding:12px 30px;
+    border:none;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.print-btn:hover{
+    background:#333;
+}
+
+/* Hide button while printing */
+@media print{
+
+    .print-btn{
+        display:none;
+    }
+
+    body{
+        background:#fff;
+        padding:0;
+    }
+
+    .form-container{
+        box-shadow:none;
+        border:2px solid #000;
+    }
+    .second-page{
+        page-break-before: always;
+        break-before: page;
+        margin-top:0;
+    }
+
+}
+/* SECOND PAGE RULES */
+
+.rules-heading{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.rules-list{
+    padding-left:25px;
+    line-height:1.6;
+    font-size:16px;
+    text-align:justify;
+}
+
+.rules-list li{
+    margin-bottom:10px;
+}
+
+.second-declaration{
+    margin-top:40px;
+    border-top:1px solid #000;
+    padding-top:20px;
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="form-content">
+        
+        <!-- टॉप हेडर -->
+        <div class="top-header">
+            <div>स्थापना : २०२५</div>
+            <div>|| श्री गणेशाय नमः ||</div>
+            <div>नोंदणी क्रमांक : पुणे/०००६६१/२०२५</div>
+        </div>
+
+        <!-- मुख्य टायटल -->
+        <div class="main-title-container">
+            <h1 class="main-title">॥ त्रिताल ॥</h1>
+            <div class="subtitle">वाद्य पथक, पुणे</div>
+            <div class="motto">निष्ठा धृतिः सत्यम्</div>
+        </div>
+
+        <!-- गोल्डन लाईन -->
+        <div class="gold-line"></div>
+
+        <!-- दिनांक आणि फोटो -->
+        <div class="date-photo-row">
+            <div class="date-section">
+                दिनांक : <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ २०२</span>
+            </div>
+            <div class="photo-box">
+
+               <img src="{{ member.photo.url }}"
+               style="width:100%; height:100%; object-fit:cover;">
+
+            </div>
+        </div>
+
+        <!-- फॉर्म मुख्य शीर्षक -->
+        <div class="form-title">
+            ⁕ सभासद नोंदणी फॉर्म ⁕
+        </div>
+
+        <!-- फॉर्म इनपुट्स -->
+        <div class="form-group">
+            <label>संपूर्ण नाव:</label>
+            <div class="line-input">
+               {{ member.full_name }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>संपूर्ण पत्ता:</label>
+            <div class="line-input">
+               {{ member.address }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>मोबाईल क्र.:</label>
+            <div class="line-input">
+               {{ member.mobile }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>पालकांचा क्र.:</label>
+            <div class="line-input">
+               {{ member.parent_mobile }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>विशेष कार्य:</label>
+            <div class="line-input">
+               {{ member.special_work }}
+            </div>
+        </div>
+
+        <!-- नियम व अटी (Declaration) -->
+        <div class="declaration">
+            मी {{ member.full_name }} ह्या <strong>त्रिताल वाद्य पथकात</strong> स्वतःच्या जबाबदारीवर सभासद होऊ इच्छितो. पालकांची त्यासाठी परवानगी आहे. पथकाचे सर्व नियम व अटी मला मान्य आहेत तसेच नियमांचे उल्लंघन केल्यास माझ्यावर योग्यती कठोर कारवाई होईल याची पूर्ण जाण असेल..
+        </div>
+
+        <!-- स्वाक्षरी -->
+        <div class="signature-section">
+            <div>सभासद स्वाक्षरी</div>
+            <div>पालकांची स्वाक्षरी</div>
+        </div>
+
+    </div>
+</div>
+<!-- NEXT PAGE START -->
+<!-- NEXT PAGE START -->
+
+<div class="form-container second-page">
+
+    <div class="form-content">
+
+        <!-- PAGE TITLE -->
+        <div class="form-title">
+            पथकाची नियमावली व अटी
+        </div>
+
+        <!-- RULES -->
+        <div class="rules-heading">
+            पथकाची नियमावली व अटी :
+        </div>
+
+        <ol class="rules-list">
+
+            <li>
+                कोणत्याही अमली पदार्थाचे सेवन करून सरावात किंवा मिरवणुकीत सहभागी होता येणार नाही.
+            </li>
+
+            <li>
+                पथकातील सहसदस्य, प्रमुख, ज्येष्ठ व कनिष्ठांशी माझे वर्तन सभ्यतेचे व आदराचे राहील.
+            </li>
+
+            <li>
+                सराव, मिरवणुका व इतर कार्यात माझी नियमित उपस्थिती असेल.
+            </li>
+
+            <li>
+                पथकातील माझा सहभाग केवळ आनंद, उत्सव व सेवा एवढाच सिमित असून त्या बदल्यात कोणत्याही आर्थिक व इतर स्वरूपातील मोबदल्याची मी अपेक्षा करत नाही.
+            </li>
+
+            <li>
+                माझ्या सामाजिक, आर्थिक पत, प्रतिष्ठा इत्यादीमुळे मला इतर सभासदांपेक्षा वेगळ्या वागणुकीची अपेक्षा ठेवता येणार नाही.
+            </li>
+
+            <li>
+                माझी मते, तक्रार मी गटप्रमुखांपर्यत पोहोचवेन आणि सर्व संमतीने ठरलेले निर्णय मान्य करणे व पथकाच्या कार्यात कोणताही अवाजवी हस्तक्षेप करणार नाही.
+            </li>
+
+            <li>
+                माझ्या अयोग्य आचरणामुळे पथकाच्या प्रतिमेला किंवा नियमांना बाधा पोचत असल्यास अथवा शिस्त व पथक संतुलनामध्ये बाधा येत असल्यास मला पथकातून कोणत्याही क्षणी कमी करण्याचा अधिकार प्रमुखांकडे आहे.
+            </li>
+
+            <li>
+                पथक नियुक्त कार्यात सहभागी होत असताना मला अथवा माझ्या मालमत्तेला कोणत्याही प्रकारची इजा झाल्यास त्यासाठी मी कोणालाही जबाबदार धरणार नाही.
+            </li>
+
+            <li>
+                माझा या पथकातील सहभाग संपूर्णतः स्वखुशीने, कोणत्याही दबावाविना असून पथकाची मार्गदर्शन तत्त्वे मला मान्य आहेत.
+            </li>
+
+            <li>
+                प्रमुखांनी ठरवलेल्या नियमांचे पालन करणे मला बंधनकारक राहील.
+            </li>
+
+            <li>
+                मिरवणूकीत वाद्य देताना, वादकाची सरावादरम्यान ८०% हजेरी आणि त्याची वाजवण्याची क्षमता यावर ठरविण्यात येईल.
+            </li>
+
+            <li>
+                सराव सुरू होण्याच्या वेळेपुर्वी व सराव संपल्याच्या वेळेनंतर वादकांची जबाबदारी पथकाची नसेल.
+            </li>
+
+            <li>
+                पथकामध्ये ध्वज सर्वांना अनिवार्य असेल 
+            </li>
+        </ol>
+
+        <!-- DECLARATION -->
+        <div class="declaration second-declaration">
+
+            <strong>हमीपत्र:</strong>
+
+            मी {{ member.full_name }} वरील सर्व नियम आणि अटी
+            काळजीपूर्वक वाचल्या असून त्या मला पूर्णपणे मान्य आहेत.
+            मी स्वतःच्या जबाबदारीवर या पथकाचा सभासद होत असून
+            नियमांचे उल्लंघन झाल्यास पथक प्रमुखांचा निर्णय मला अंतिम
+            व बंधनकारक असेल.
+
+        </div>
+    </div>
+
+</div>
+<!-- PRINT BUTTON -->
+<div style="text-align:center; margin-top:30px; margin-bottom:30px;">
+
+    <button onclick="window.print()" class="print-btn">
+        Print Form
+    </button>
+
+</div>
+</body>
+</html>
